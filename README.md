@@ -27,7 +27,7 @@ PASSWORD=yourpasswordhere
 ## Tentang PHP Runtime untuk Vercel
 
 Untuk meminta Vercel menggunakan PHP Runtime, diperlukan file `vercel.json` yang bisa dianggap sebagai `.htaccess` versi Vercel.  
-Perlu diketahui bahwa entry point tidak boleh di luar folder `/api`, sehingga jika ingin file `index.php` tetap ada di luar folder `/api`, perlu dibuat sebuah file *redirect* di `/api/index.php` seperti yang telah dicontohkan dalam repository ini.
+Perlu diketahui bahwa entry point tidak boleh di luar folder `/api`, sehingga file-file PHP perlu ada dalam folder `/api`.
 
 Kalian bisa membaca dokumentasi Vercel PHP Runtime di sini:  
 https://github.com/vercel-community/php
