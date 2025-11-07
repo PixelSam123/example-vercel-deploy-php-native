@@ -5,7 +5,7 @@ loadEnvironmentVariables();
 
 $pdo = getConnection();
 
-// Handle form submissions
+// Handle POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         switch ($_POST['action']) {
@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+// Handle GET
 $todos = $pdo->query("SELECT * FROM todos ORDER BY id ASC")->fetchAll();
 ?>
 
@@ -44,24 +45,24 @@ $todos = $pdo->query("SELECT * FROM todos ORDER BY id ASC")->fetchAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List - Vercel Native PHP Project Deployment Example</title>
-    <meta name="description" content="Example of Deploying a Native PHP Project to Vercel">
+    <title>Todo List - Contoh Deployment Proyek PHP Native ke Vercel</title>
+    <meta name="description" content="Contoh Deployment Proyek PHP Native ke Vercel">
 </head>
 
 <body>
     <h1>Todo List</h1>
-    <p>Example of Deploying a Native PHP Project to Vercel</p>
+    <p>Contoh Deployment Proyek PHP Native ke Vercel</p>
 
-    <h2>Add New Item</h2>
+    <h2>Tambah Item</h2>
     <form method="POST">
         <input type="hidden" name="action" value="add">
-        <input type="text" name="item" placeholder="Enter a new task" required>
-        <button type="submit">Add</button>
+        <input type="text" name="item" placeholder="Masukkan todo baru" required>
+        <button type="submit">Tambah</button>
     </form>
 
-    <h2>Tasks</h2>
+    <h2>Daftar Todo</h2>
     <?php if (empty($todos)): ?>
-        <p>No tasks yet. Add one above</p>
+        <p>Belum ada todo. Tambahkan di atas</p>
     <?php else: ?>
         <ul>
             <?php foreach ($todos as $todo): ?>

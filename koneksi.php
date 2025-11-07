@@ -21,7 +21,7 @@ function getConnection()
     $password = $_ENV['PASSWORD'];
 
     if (!$host || !$port || !$dbname || !$user || !$password) {
-        die('Database configuration is missing in environment variables.');
+        die('Konfigurasi database tidak lengkap di environment variable.');
     }
 
     $conStr = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=require";
@@ -34,6 +34,6 @@ function getConnection()
             PDO::ATTR_EMULATE_PREPARES => false,
         ]);
     } catch (PDOException $e) {
-        die('Database connection failed: ' . $e->getMessage());
+        die('Koneksi database gagal: ' . $e->getMessage());
     }
 }
